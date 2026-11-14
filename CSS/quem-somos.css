@@ -8,26 +8,28 @@
 
 .main-quemsomos {
     display: flex;
+    flex-direction: column;
     align-items: center;
     min-height: 560px;
     overflow: hidden;
     font-family: "Montserrat", sans-serif;
-    background-color: #fff6e5;
-    background-image: url('../img/backgorund-quem-somos1.png');
-    background-size: cover;
-    background-position: center;
+    background-color: #f3ebf2;
+    padding: 0;
 }
 
 .main-inicio-quem {
     width: 100%;
-    max-width: 1280px;
+    max-width: none;
     margin: 0 auto;
-    padding: 60px;
+    padding: 60px max(24px, calc((100% - 1160px) / 2));
     display: flex;
     align-items: center;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 40px;
+    background-image: url('../img/backgorund-quem-somos1.png');
+    background-size: cover;
+    background-position: center;
 }
 
 .main-inicio-quem-left {
@@ -51,6 +53,16 @@
     font-size: 30px;
     line-height: 1.4;
     color: white;
+}
+
+.texto-inicio-quem strong {
+    display: block;
+    margin-bottom: 10px;
+}
+
+.texto-inicio-quem p {
+    font-size: 26px;
+    line-height: 1.45;
 }
 
 .btn-inicio-quem {
@@ -88,16 +100,172 @@
     filter: drop-shadow(0 12px 20px rgba(64, 3, 99, 0.25));
 }
 
+.conectar-quem {
+    width: 100vw;
+    margin-left: calc(50% - 50vw);
+    margin-top: 28px;
+    min-height: 620px;
+    padding: 72px 4vw 16px 5vw;
+    background: transparent;
+    border: 0;
+    border-radius: 0;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    overflow: hidden;
+}
+
+.conectar-quem-left {
+    position: relative;
+    z-index: 2;
+    flex: 0 1 560px;
+    max-width: 560px;
+    margin-left: 3vw;
+}
+
+.proposito-quem {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border: 3px solid #5e236d;
+    border-radius: 999px;
+    background: transparent;
+    color: #5e236d;
+    font-size: 1.05rem;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    margin-bottom: 28px;
+}
+
+.subtitulo-conectar-quem {
+    font-size: clamp(3.1rem, 4vw, 5.3rem);
+    line-height: 0.96;
+    color: #4d1c75;
+    font-weight: 800;
+    letter-spacing: -0.05em;
+    margin: 0 0 28px;
+}
+
+.destaque-conectar {
+    color: #4d1c75;
+}
+
+.conectar-quem hr {
+    width: 104px;
+    height: 5px;
+    background: #efaa1c;
+    border: none;
+    border-radius: 999px;
+    margin: 0 0 28px;
+}
+
+.texto-conectar-quem {
+    max-width: 580px;
+    font-size: clamp(1.28rem, 1.8vw, 2.1rem);
+    line-height: 1.55;
+    color: #4b2b5d;
+    font-weight: 500;
+}
+
+.conectar-quem img {
+    position: absolute;
+    right: 0;
+    top: 52%;
+    transform: translateY(-50%);
+    width: min(62vw, 960px);
+    max-width: 960px;
+    height: auto;
+    display: block;
+    z-index: 1;
+    pointer-events: none;
+}
+
 @media (max-width: 1100px) {
     .main-inicio-quem-left,
     .main-inicio-quem-right {
         left: 0;
     }
+
+    .conectar-quem {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 52px 28px 18px;
+    }
+
+    .conectar-quem-left,
+    .conectar-quem img {
+        max-width: none;
+        width: 100%;
+    }
+}
+
+@media (max-width: 850px) {
+    .main-inicio-quem {
+        flex-direction: column;
+        align-items: stretch;
+        gap: 24px;
+        padding: 44px 24px 24px;
+    }
+
+    .main-inicio-quem-left,
+    .main-inicio-quem-right {
+        left: 0;
+        width: 100%;
+    }
+
+    .main-inicio-quem-left {
+        flex-basis: auto;
+    }
+
+    .titulo-inicio-quem {
+        font-size: clamp(36px, 7vw, 48px);
+    }
+
+    .texto-inicio-quem {
+        font-size: 22px;
+    }
+
+    .texto-inicio-quem p {
+        font-size: 19px;
+    }
+
+    .main-inicio-quem-right {
+        flex-basis: auto;
+    }
+
+    .img-predio {
+        max-width: min(100%, 420px);
+    }
+
+    .conectar-quem {
+        min-height: 0;
+        align-items: flex-start;
+        padding: 48px 24px clamp(160px, 35vw, 280px);
+    }
+
+    .conectar-quem-left {
+        width: min(100%, 560px);
+        margin-left: 0;
+    }
+
+    .conectar-quem img {
+        top: auto;
+        right: 0;
+        bottom: -24px;
+        transform: none;
+        width: 100%;
+    }
 }
 
 @media (max-width: 700px) {
+    .main-quemsomos {
+        padding: 0;
+    }
+
     .main-inicio-quem {
-        padding: 40px 24px;
+        padding: 36px 20px 20px;
     }
 
     .titulo-inicio-quem {
@@ -106,5 +274,31 @@
 
     .texto-inicio-quem {
         font-size: 20px;
+    }
+
+    .texto-inicio-quem p {
+        font-size: 18px;
+    }
+
+    .btn-inicio-quem {
+        width: min(100%, 250px);
+        font-size: 19px;
+    }
+
+    .proposito-quem {
+        font-size: 0.9rem;
+        padding: 10px 20px;
+    }
+
+    .subtitulo-conectar-quem {
+        font-size: clamp(2rem, 9vw, 2.7rem);
+    }
+
+    .texto-conectar-quem {
+        font-size: 1.05rem;
+    }
+
+    .conectar-quem {
+        padding: 40px 20px clamp(150px, 38vw, 240px);
     }
 }
