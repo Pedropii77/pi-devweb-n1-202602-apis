@@ -27,7 +27,7 @@
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 40px;
-    background-image: url('../img/backgorund-quem-somos1.png');
+    background-image: url('../img/background-quem-somos1.png');
     background-size: cover;
     background-position: center;
 }
@@ -58,11 +58,6 @@
 .texto-inicio-quem strong {
     display: block;
     margin-bottom: 10px;
-}
-
-.texto-inicio-quem p {
-    font-size: 26px;
-    line-height: 1.45;
 }
 
 .btn-inicio-quem {
@@ -100,85 +95,70 @@
     filter: drop-shadow(0 12px 20px rgba(64, 3, 99, 0.25));
 }
 
-.conectar-quem {
-    width: 100vw;
-    margin-left: calc(50% - 50vw);
-    margin-top: 28px;
-    min-height: 620px;
-    padding: 72px 4vw 16px 5vw;
-    background: transparent;
-    border: 0;
-    border-radius: 0;
+.main-proposito-quem {
     position: relative;
+    width: 100%;
+    min-height: 800px;
     display: flex;
-    align-items: center;
-    justify-content: flex-start;
+    align-items: flex-start;
     overflow: hidden;
+    background-color: #f0e4f4;
 }
 
-.conectar-quem-left {
+.proposito-conteudo {
     position: relative;
     z-index: 2;
-    flex: 0 1 560px;
+    width: 100%;
+    padding: 100px 7% 0;
+}
+
+.proposito-texto {
     max-width: 560px;
-    margin-left: 3vw;
 }
 
-.proposito-quem {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 12px 28px;
-    border: 3px solid #5e236d;
+.proposito-selo {
+    display: inline-block;
+    margin-bottom: 24px;
+    padding: 10px 40px;
+    border: 2px solid #9000b5;
     border-radius: 999px;
-    background: transparent;
-    color: #5e236d;
-    font-size: 1.05rem;
-    font-weight: 600;
-    letter-spacing: 0.02em;
-    margin-bottom: 28px;
+    color: #6a0f8e;
+    font-size: 24px;
+    font-weight: 700;
 }
 
-.subtitulo-conectar-quem {
-    font-size: clamp(3.1rem, 4vw, 5.3rem);
-    line-height: 0.96;
-    color: #4d1c75;
-    font-weight: 800;
-    letter-spacing: -0.05em;
-    margin: 0 0 28px;
+.proposito-titulo {
+    font-size: 54px;
+    font-weight: 700;
+    line-height: 1.3;
+    color: #5a2a9a;
 }
 
-.destaque-conectar {
-    color: #4d1c75;
+.proposito-destaque {
+    color: #9400d3;
 }
 
-.conectar-quem hr {
-    width: 104px;
-    height: 5px;
-    background: #efaa1c;
-    border: none;
-    border-radius: 999px;
-    margin: 0 0 28px;
+.proposito-linha {
+    width: 150px;
+    height: 3px;
+    margin: 28px 0;
+    background-color: #f2b01e;
 }
 
-.texto-conectar-quem {
-    max-width: 580px;
-    font-size: clamp(1.28rem, 1.8vw, 2.1rem);
-    line-height: 1.55;
-    color: #4b2b5d;
-    font-weight: 500;
+.proposito-paragrafo {
+    font-size: 26px;
+    line-height: 1.42;
+    color: #4a0f77;
 }
 
-.conectar-quem img {
+.proposito-imagem {
     position: absolute;
-    right: 0;
-    top: 52%;
-    transform: translateY(-50%);
-    width: min(62vw, 960px);
-    max-width: 960px;
+    left: 0;
+    bottom: -40px;
+    z-index: 1;
+    width: 100%;
     height: auto;
     display: block;
-    z-index: 1;
     pointer-events: none;
 }
 
@@ -188,16 +168,36 @@
         left: 0;
     }
 
-    .conectar-quem {
-        flex-direction: column;
-        align-items: stretch;
-        padding: 52px 28px 18px;
+    .proposito-conteudo {
+        padding: 80px 40px 0;
     }
 
-    .conectar-quem-left,
-    .conectar-quem img {
-        max-width: none;
-        width: 100%;
+    .proposito-titulo {
+        font-size: 46px;
+    }
+
+    .proposito-paragrafo {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-proposito-quem {
+        flex-direction: column;
+        min-height: auto;
+    }
+
+    .proposito-conteudo {
+        padding: 56px 24px 0;
+    }
+
+    .proposito-texto {
+        max-width: 640px;
+    }
+
+    .proposito-imagem {
+        position: static;
+        margin-top: 32px;
     }
 }
 
@@ -227,35 +227,12 @@
         font-size: 22px;
     }
 
-    .texto-inicio-quem p {
-        font-size: 19px;
-    }
-
     .main-inicio-quem-right {
         flex-basis: auto;
     }
 
     .img-predio {
         max-width: min(100%, 420px);
-    }
-
-    .conectar-quem {
-        min-height: 0;
-        align-items: flex-start;
-        padding: 48px 24px clamp(160px, 35vw, 280px);
-    }
-
-    .conectar-quem-left {
-        width: min(100%, 560px);
-        margin-left: 0;
-    }
-
-    .conectar-quem img {
-        top: auto;
-        right: 0;
-        bottom: -24px;
-        transform: none;
-        width: 100%;
     }
 }
 
@@ -276,29 +253,75 @@
         font-size: 20px;
     }
 
-    .texto-inicio-quem p {
-        font-size: 18px;
-    }
-
     .btn-inicio-quem {
         width: min(100%, 250px);
         font-size: 19px;
     }
 
-    .proposito-quem {
-        font-size: 0.9rem;
-        padding: 10px 20px;
+    .proposito-conteudo {
+        padding: 44px 20px 0;
     }
 
-    .subtitulo-conectar-quem {
-        font-size: clamp(2rem, 9vw, 2.7rem);
+    .proposito-selo {
+        padding: 8px 28px;
+        font-size: 18px;
     }
 
-    .texto-conectar-quem {
-        font-size: 1.05rem;
+    .proposito-titulo {
+        font-size: 36px;
     }
 
-    .conectar-quem {
-        padding: 40px 20px clamp(150px, 38vw, 240px);
+    .proposito-paragrafo {
+        font-size: 18px;
     }
+}
+
+@media (max-width: 480px) {
+    .proposito-titulo {
+        font-size: 30px;
+    }
+
+    .proposito-linha {
+        width: 110px;
+        margin: 22px 0;
+    }
+}
+
+.main-oferecemos-quem {
+    width: 100%;
+    min-height: 620px;
+    background-image: url('../img/background-quem-somos2.png');
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: start;
+}
+
+.main-oferecemos-quem-left {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: start;
+    justify-content: start;
+}
+
+.oferecemos-selo {
+    width: 350px;
+    height: 50px;
+    display: flex;
+    border: 2px solid white;
+    border-radius: 70px;
+    color: white;
+    align-items: center;
+    justify-content: center;
+    font-size: 26px;
+}
+
+.subtitulo-oferecemos {
+    color: white;
+    font-size: 24px;
 }
