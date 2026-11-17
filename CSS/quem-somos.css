@@ -95,6 +95,8 @@
     filter: drop-shadow(0 12px 20px rgba(64, 3, 99, 0.25));
 }
 
+/* Propósito */
+
 .main-proposito-quem {
     position: relative;
     width: 100%;
@@ -287,6 +289,8 @@
     }
 }
 
+/* Oque Oferecemos */
+
 .main-oferecemos-quem {
     width: 100%;
     min-height: 620px;
@@ -294,34 +298,236 @@
     background-position: center;
     background-size: cover;
     display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    align-items: center;
-    justify-content: start;
+    align-items: flex-start;
+    justify-content: flex-start;
+    padding: 78px 5.5%;
 }
 
 .main-oferecemos-quem-left {
-    width: 50%;
-    height: 100%;
+    width: min(100%, 460px);
     display: flex;
     flex-direction: column;
-    align-items: start;
-    justify-content: start;
+    align-items: flex-start;
+    gap: 8px;
 }
 
 .oferecemos-selo {
-    width: 350px;
-    height: 50px;
+    width: auto;
+    min-height: 44px;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 8px 22px;
     border: 2px solid white;
     border-radius: 70px;
     color: white;
-    align-items: center;
-    justify-content: center;
-    font-size: 26px;
+    font-size: 20px;
 }
 
 .subtitulo-oferecemos {
     color: white;
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1.35;
+}
+
+@media (max-width: 700px) {
+    .main-oferecemos-quem {
+        min-height: 520px;
+        padding: 48px 20px;
+    }
+
+    .subtitulo-oferecemos {
+        font-size: clamp(32px, 8vw, 42px);
+    }
+}
+
+/* Missão */
+
+.main-missao-quem {
+    width: 100%;
+    min-height: 500px;
+    background: white;
+}
+
+/* O que dizem */
+
+.main-dizem-quem {
+    width: 100%;
+    min-height: 900px;
+    background-image: url('../img/background-quem-somos3.png');
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: 100% 100%; /* mostra a imagem inteira, sem cortar */
+    display: flex;
+    flex-direction: column;
+    padding: 140px 5% 100px;
+}
+
+.main-dizem-quem-top {
+    margin-bottom: 48px;
+}
+
+.subtitulo-dizem {
+    max-width: 560px;
+    color: white;
+    font-size: 64px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+.marcado-dizem {
+    color: #ffa301;
+    font-weight: 800;
+}
+
+.texto-dizem {
+    margin-top: 16px;
+    max-width: 560px;
+    color: white;
     font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.main-dizem-quem-bottom {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 40px;
+}
+
+.depoimento-card {
+    position: relative;
+    min-height: 360px;
+    display: flex;
+    flex-direction: column;
+    padding: 56px 44px 40px;
+    border-radius: 36px;
+    background-color: #f7edfb;
+    box-shadow: 0 16px 40px rgba(64, 3, 99, 0.3);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.depoimento-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 24px 50px rgba(64, 3, 99, 0.4);
+}
+
+.depoimento-card::before {
+    content: "“";
+    position: absolute;
+    top: 8px;
+    left: 32px;
+    font-size: 110px;
+    font-weight: 800;
+    line-height: 1;
+    color: #ffa301;
+}
+
+.depoimento-relato {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    margin: 0;
+    color: #5a2a9a;
+    font-size: 24px;
+    font-weight: 600;
+    line-height: 1.5;
+}
+
+.depoimento-autor {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+    margin-top: 28px;
+    padding-top: 24px;
+    border-top: 2px solid #e3c9ee;
+    color: #9900bd;
+}
+
+.depoimento-avatar {
+    width: 72px;
+    height: 72px;
+    flex: 0 0 72px;
+    display: grid;
+    place-items: center;
+    border: 2px solid #a153bc;
+    border-radius: 50%;
+    color: #a153bc;
+    font-size: 32px;
+}
+
+.depoimento-autor h3 {
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.depoimento-autor p {
+    margin-top: 4px;
+    font-size: 17px;
+    font-weight: 600;
+}
+
+@media (max-width: 1100px) {
+    .subtitulo-dizem {
+        font-size: 52px;
+    }
+
+    .depoimento-relato {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 800px) {
+    .main-dizem-quem {
+        min-height: auto;
+        padding: 90px 24px 70px;
+    }
+
+    .subtitulo-dizem {
+        font-size: 44px;
+    }
+
+    .texto-dizem {
+        font-size: 20px;
+    }
+
+    .main-dizem-quem-bottom {
+        grid-template-columns: 1fr;
+        gap: 28px;
+    }
+
+    .depoimento-card {
+        min-height: auto;
+        padding: 56px 28px 32px;
+    }
+}
+
+@media (max-width: 480px) {
+    .main-dizem-quem {
+        padding: 64px 20px 48px;
+    }
+
+    .subtitulo-dizem {
+        font-size: 36px;
+    }
+
+    .depoimento-relato {
+        font-size: 18px;
+    }
+
+    .depoimento-avatar {
+        width: 56px;
+        height: 56px;
+        flex-basis: 56px;
+        font-size: 26px;
+    }
+
+    .depoimento-autor h3 {
+        font-size: 19px;
+    }
+
+    .depoimento-autor p {
+        font-size: 14px;
+    }
 }
