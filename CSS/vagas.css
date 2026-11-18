@@ -8,7 +8,7 @@
 
 .main {
     font-family: "Montserrat", sans-serif;
-    background-color: white;
+    background-color: #f8f1fa;
 }
 
 .inicio {
@@ -16,7 +16,7 @@
     align-items: center;
     min-height: 560px;
     overflow: hidden;
-    background-color: white;
+    background-color: #f8f1fa;
     background-size: cover;
 }
 
