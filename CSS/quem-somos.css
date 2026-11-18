@@ -95,8 +95,6 @@
     filter: drop-shadow(0 12px 20px rgba(64, 3, 99, 0.25));
 }
 
-/* Propósito */
-
 .main-proposito-quem {
     position: relative;
     width: 100%;
@@ -289,60 +287,158 @@
     }
 }
 
-/* Oque Oferecemos */
-
 .main-oferecemos-quem {
+    position: relative;
     width: 100%;
-    min-height: 620px;
+    min-height: 680px;
     background-image: url('../img/background-quem-somos2.png');
     background-position: center;
     background-size: cover;
     display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
+    align-items: center;
+    overflow: hidden;
     padding: 78px 5.5%;
 }
 
 .main-oferecemos-quem-left {
-    width: min(100%, 460px);
+    position: relative;
+    z-index: 2;
+    width: min(100%, 520px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 8px;
+    gap: 20px;
 }
 
 .oferecemos-selo {
-    width: auto;
-    min-height: 44px;
-    display: flex;
+    display: inline-flex;
     align-items: center;
     justify-content: center;
+    min-height: 44px;
     padding: 8px 22px;
     border: 2px solid white;
     border-radius: 70px;
     color: white;
     font-size: 20px;
+    font-weight: 700;
 }
 
 .subtitulo-oferecemos {
     color: white;
     font-size: 42px;
     font-weight: 700;
-    line-height: 1.35;
+    line-height: 1.25;
+}
+
+.texto-oferecemos {
+    color: #f0e4f4;
+    font-size: 20px;
+    font-weight: 500;
+    line-height: 1.6;
+}
+
+.btn-oferecemos {
+    min-height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 36px;
+    border-radius: 35px;
+    background-color: #ffa301;
+    color: #3d0450;
+    font-size: 20px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.btn-oferecemos:hover {
+    background-color: #e69200;
+    transform: translateY(-3px);
+}
+
+.main-oferecemos-quem-right {
+    position: absolute;
+    top: 40px;
+    right: 3%;
+    bottom: 0;
+    z-index: 1;
+    width: 48%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.main-oferecemos-quem-right img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+    object-position: center top;
+    transform: scale(1.15);
+    transform-origin: top center;
+}
+
+@media (max-width: 1100px) {
+    .main-oferecemos-quem-right {
+        width: 44%;
+    }
+
+    .subtitulo-oferecemos {
+        font-size: 36px;
+    }
+}
+
+@media (max-width: 900px) {
+    .main-oferecemos-quem {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 32px;
+        min-height: auto;
+        padding: 56px 24px 0;
+    }
+
+    .main-oferecemos-quem-right {
+        position: relative;
+        top: auto;
+        right: auto;
+        bottom: auto;
+        width: 100%;
+        height: 460px;
+        align-items: flex-end;
+    }
+
+    .main-oferecemos-quem-right img {
+        object-position: center bottom;
+        transform: none;
+    }
 }
 
 @media (max-width: 700px) {
     .main-oferecemos-quem {
-        min-height: 520px;
-        padding: 48px 20px;
+        padding: 48px 20px 0;
+    }
+
+    .oferecemos-selo {
+        font-size: 17px;
     }
 
     .subtitulo-oferecemos {
-        font-size: clamp(32px, 8vw, 42px);
+        font-size: clamp(30px, 8vw, 42px);
+    }
+
+    .texto-oferecemos {
+        font-size: 17px;
+    }
+
+    .btn-oferecemos {
+        width: 100%;
+        font-size: 18px;
+    }
+
+    .main-oferecemos-quem-right {
+        height: 380px;
     }
 }
-
-/* Missão */
 
 .main-missao-quem {
     width: 100%;
@@ -350,15 +446,13 @@
     background: white;
 }
 
-/* O que dizem */
-
 .main-dizem-quem {
     width: 100%;
     min-height: 900px;
     background-image: url('../img/background-quem-somos3.png');
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100% 100%; /* mostra a imagem inteira, sem cortar */
+    background-size: 100% 100%;
     display: flex;
     flex-direction: column;
     padding: 140px 5% 100px;
@@ -529,5 +623,127 @@
 
     .depoimento-autor p {
         font-size: 14px;
+    }
+}
+
+.main-patrocinadores-quem {
+    width: 100%;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 56px;
+    padding: 80px 100px;
+    background-color: #f0daf7;
+    border-top: 3px solid #9000b5;
+    font-family: "Montserrat", sans-serif;
+}
+
+.main-patrocinadores-quem-top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.main-patrocinadores-quem-top-left {
+    flex-shrink: 0;
+}
+
+.subtitulo-patrocinadores {
+    font-size: 100px;
+    font-weight: 800;
+    line-height: 1.1;
+    color: #5a0a8a;
+}
+
+.marcacao-patrocinadores {
+    color: #ffa301;
+}
+
+.main-patrocinadores-quem-top-right {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.main-patrocinadores-quem-top-right img {
+    width: 100%;
+    max-width: 760px;
+    height: auto;
+    object-fit: contain;
+    object-position: right center;
+}
+
+.main-patrocinadores-quem-bottom {
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 32px;
+}
+
+.main-patrocinadores-quem-bottom img {
+    width: 100%;
+    height: 150px;
+    padding: 24px 28px;
+    object-fit: contain;
+    background-color: white;
+    border-radius: 24px;
+    box-shadow: 0 10px 28px rgba(64, 3, 99, 0.12);
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.main-patrocinadores-quem-bottom img:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 34px rgba(64, 3, 99, 0.22);
+}
+
+@media (max-width: 1100px) {
+    .main-patrocinadores-quem {
+        padding: 64px 40px;
+    }
+
+    .subtitulo-patrocinadores {
+        font-size: 72px;
+    }
+
+    .main-patrocinadores-quem-bottom {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 700px) {
+    .main-patrocinadores-quem {
+        padding: 48px 20px;
+        gap: 36px;
+    }
+
+    .main-patrocinadores-quem-top {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 16px;
+    }
+
+    .main-patrocinadores-quem-top-right {
+        width: 100%;
+        justify-content: flex-start;
+    }
+
+    .subtitulo-patrocinadores {
+        font-size: 52px;
+    }
+
+    .main-patrocinadores-quem-bottom {
+        gap: 16px;
+    }
+
+    .main-patrocinadores-quem-bottom img {
+        height: 110px;
+        padding: 16px;
     }
 }
