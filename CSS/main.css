@@ -332,7 +332,6 @@
     height: 180px;
     border-radius: 14px;
     background-color: #9000b5;
-    background-image: url(https://imgs.search.brave.com/hIg7-u4afNpvLVRA9xsojAwBZH01FSGzo4GsyyEo2ew/rs:fit:860:0:0:0/g:ce/aHR0cHM6Ly91bml2/ZXJzb2x1ZGljby5j/b20uYnIvd3AtY29u/dGVudC91cGxvYWRz/LzIwMjAvMDcvQ0VO/VFJPLUhJU1RPUklD/Ty1ERS1TQU8tUEFV/TE8uanBn), linear-gradient(135deg, #9000b5 0%, #400363 100%);
     background-size: cover;
     background-position: center;
 }

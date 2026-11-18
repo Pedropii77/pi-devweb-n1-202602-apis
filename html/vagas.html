@@ -54,6 +54,73 @@
             </svg>
         </div>
 
+        <!-- Modo administrador (só aparece depois do login) -->
+        <div class="admin-barra" id="adminBarra" hidden>
+            <p class="admin-titulo"><i class="fa-solid fa-pen-to-square" aria-hidden="true"></i> Modo administrador: você pode editar as vagas</p>
+            <div class="admin-acoes">
+                <button type="button" class="admin-btn principal" id="adminNova"><i class="fa-solid fa-plus" aria-hidden="true"></i> Nova vaga</button>
+                <button type="button" class="admin-btn" id="adminExportar"><i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar código das vagas</button>
+                <button type="button" class="admin-btn" id="adminRestaurar"><i class="fa-solid fa-rotate-left" aria-hidden="true"></i> Restaurar originais</button>
+            </div>
+        </div>
+
+        <dialog class="admin-modal" id="adminModal" aria-labelledby="adminModalTitulo">
+            <form id="adminForm" method="dialog" novalidate>
+                <h2 id="adminModalTitulo">Nova vaga</h2>
+
+                <div class="admin-grid">
+                    <label class="admin-campo cheio">Título
+                        <input type="text" name="titulo" required maxlength="80" placeholder="Jovem Aprendiz - Marketing">
+                    </label>
+                    <label class="admin-campo">Estado (UF)
+                        <input type="text" name="estado" required maxlength="2" placeholder="SP" style="text-transform: uppercase">
+                    </label>
+                    <label class="admin-campo">Área
+                        <input type="text" name="area" required maxlength="40" list="listaAreas" placeholder="Marketing">
+                        <datalist id="listaAreas"></datalist>
+                    </label>
+                    <label class="admin-campo">Modalidade
+                        <select name="modalidade" required>
+                            <option>Presencial</option>
+                            <option>Híbrido</option>
+                            <option>Remoto</option>
+                        </select>
+                    </label>
+                    <label class="admin-campo">Salário
+                        <input type="text" name="salario" required maxlength="20" placeholder="R$1.142,33">
+                    </label>
+                    <label class="admin-campo cheio">Local
+                        <input type="text" name="local" required maxlength="80" placeholder="São Paulo - Centro Histórico">
+                    </label>
+                    <label class="admin-campo cheio">Requisito
+                        <input type="text" name="requisito" required maxlength="100" placeholder="Necessário ter sido ex-aluno Percorre">
+                    </label>
+                    <label class="admin-campo">Idade
+                        <input type="text" name="idade" required maxlength="30" placeholder="16 a 22 anos">
+                    </label>
+                    <label class="admin-campo">Horário
+                        <input type="text" name="horario" required maxlength="140" placeholder="Segunda a sexta das 10h às 17h">
+                    </label>
+                    <div class="admin-campo cheio">
+                        <label for="adminFoto">Foto (caminho da imagem)</label>
+                        <input type="text" id="adminFoto" name="foto" list="listaFotos" placeholder="./img/vagas/sao-paulo.jpg">
+                        <datalist id="listaFotos"></datalist>
+                        <label class="admin-upload">
+                            <input type="file" id="adminFotoArquivo" accept="image/*">
+                            <span>ou envie uma imagem do computador</span>
+                        </label>
+                    </div>
+                </div>
+
+                <p class="admin-erro" id="adminErro" role="alert" hidden></p>
+
+                <div class="admin-modal-botoes">
+                    <button type="button" class="admin-btn" id="adminCancelar">Cancelar</button>
+                    <button type="submit" class="admin-btn principal">Salvar vaga</button>
+                </div>
+            </form>
+        </dialog>
+
         <!-- Listagem de vagas -->
         <section class="vagas-lista" aria-labelledby="vagas-lista-titulo">
             <h2 id="vagas-lista-titulo" class="sr-only">Lista de vagas</h2>
@@ -128,6 +195,7 @@
 
     <!-- Botão de Acessibilidade -->
     <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility/dist/sienna-accessibility.umd.js" defer></script>
+    <script src="../JS/auth.js"></script>
 
     <script src="../JS/main.js"></script>
     <script src="../JS/vagas.js"></script>

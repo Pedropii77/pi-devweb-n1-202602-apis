@@ -5,7 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login | Lupita</title>
     <link rel="stylesheet" href="../CSS/alt.css">
-    <link rel="icon" href="/img/logo-lupita.png" type="image/x-icon">
+    <link rel="stylesheet" href="../CSS/login.css">
+    <link rel="icon" href="../img/logo-lupita.png" type="image/x-icon">
     <!-- Linkagem com o site para os icons do footer -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
 </head>
@@ -13,16 +14,16 @@
     <header class="header">
 
         <div class="logo">
-             <a href="/index.html"><img src="/img/alt-logo-lupita.png" alt="Instituto Percorre Lupita"></a>
+             <a href="../index.html"><img src="../img/alt-logo-lupita.png" alt="Instituto Percorre Lupita"></a>
         </div>
 
         <nav class="nav">
             <div class="navbar-menu">
                 <a href="../html/quem_somos.html">Quem somos</a>
                 <a href="../html/vagas.html">Vagas</a>
-                <a href="../html/quem_somos.html">Perguntas Frequentes</a>
+                <a href="../html/perguntas.html">Perguntas Frequentes</a>
                 <a href="../html/contato.html">Contato</a>
-                <a href="#" class="login"><b>Login</b></a>
+                <a href="../html/login.html" class="login"><b>Login</b></a>
             </div>
         </nav>
     </header>
@@ -31,8 +32,33 @@
         <img src="../img/noticia-ios-e-percorre.png" alt="Faixa de notícia confirmando que agora o antigo IOS se tornou Instituto Percorre">
     </div>
 
-    <main class="main">
-        
+    <main class="login-main">
+        <div class="login-circulos" aria-hidden="true"></div>
+
+        <section class="login-card" aria-labelledby="loginTitulo">
+            <h1 class="login-titulo" id="loginTitulo">Login</h1>
+
+            <form class="login-form" id="formLogin" novalidate>
+                <div class="login-campo">
+                    <label class="sr-only" for="loginUsuario">Usuário</label>
+                    <input type="text" id="loginUsuario" name="usuario" placeholder="Usuário" autocomplete="username" required>
+                    <i class="fa-solid fa-user" aria-hidden="true"></i>
+                </div>
+
+                <div class="login-campo">
+                    <label class="sr-only" for="loginSenha">Senha</label>
+                    <input type="password" id="loginSenha" name="senha" placeholder="Senha" autocomplete="current-password" required>
+                    <i class="fa-solid fa-lock" aria-hidden="true"></i>
+                </div>
+
+                <a href="#" class="login-esqueci" id="loginEsqueci">Esqueci minha senha</a>
+
+                <p class="login-aviso" id="loginAviso" hidden>Para recuperar o acesso, fale com a equipe do Instituto Percorre ou com a Apis.</p>
+                <p class="login-erro" id="loginErro" role="alert" hidden>Usuário ou senha incorretos.</p>
+
+                <button type="submit" class="login-botao">Login</button>
+            </form>
+        </section>
     </main>
 
     <footer class="footer">
@@ -72,6 +98,8 @@
     <!-- Botão de Acessibilidade -->
     <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility/dist/sienna-accessibility.umd.js" defer></script>
 
-    <script src="../js/main.js"></script>
+    <script src="../JS/auth.js"></script>
+    <script src="../JS/main.js"></script>
+    <script src="../JS/login.js"></script>
 </body>
 </html>

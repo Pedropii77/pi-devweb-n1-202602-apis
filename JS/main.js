@@ -2,13 +2,14 @@
 
 const numero = "5511996759295"; // troque pelo número real
 const msg = "Oi, Lupita! Quero começar meu futuro profissional. Pode me ajudar?";
-document.querySelector(".whatsapp").href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
+const linkWhats = document.querySelector(".whatsapp");
+if (linkWhats) linkWhats.href = "https://wa.me/" + numero + "?text=" + encodeURIComponent(msg);
 
 // ===== Carrossel de vagas =====
 
 // Para adicionar/editar uma vaga, basta mexer neste array.
 // Fotos: coloque em img/vagas/ (se a foto não existir, aparece um degradê roxo).
-const vagas = [
+const VAGAS_PADRAO = [
     {
         titulo: "Jovem Aprendiz - Marketing",
         estado: "SP",
@@ -119,6 +120,28 @@ const vagas = [
     }
     
 ];
+
+// As vagas editadas no modo administrador ficam salvas no navegador (localStorage).
+// Se não houver nada salvo, usa a lista acima.
+const VAGAS_CHAVE = "lupita_vagas";
+
+function carregarVagas() {
+    try {
+        const salvo = JSON.parse(localStorage.getItem(VAGAS_CHAVE));
+        if (Array.isArray(salvo)) return salvo;
+    } catch (e) { /* ignora e usa o padrão */ }
+    return VAGAS_PADRAO.map((v) => ({ ...v }));
+}
+
+function salvarVagas(lista) {
+    localStorage.setItem(VAGAS_CHAVE, JSON.stringify(lista));
+}
+
+function restaurarVagas() {
+    localStorage.removeItem(VAGAS_CHAVE);
+}
+
+let vagas = carregarVagas();
 
 const vagasTrack = document.getElementById("vagasTrack");
 const vagasDots = document.getElementById("vagasDots");
