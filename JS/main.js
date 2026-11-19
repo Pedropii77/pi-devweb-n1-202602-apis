@@ -8,7 +8,8 @@ if (linkWhats) linkWhats.href = "https://wa.me/" + numero + "?text=" + encodeURI
 // ===== Carrossel de vagas =====
 
 // Para adicionar/editar uma vaga, basta mexer neste array.
-// Fotos: coloque em img/vagas/ (se a foto não existir, aparece um degradê roxo).
+// Fotos: ficam na pasta img/vagas/. Para trocar, substitua o arquivo mantendo o mesmo nome
+// ou informe outro caminho (ex.: "./img/vagas/minha-foto.jpg"). Sem foto, aparece um degradê roxo.
 const VAGAS_PADRAO = [
     {
         titulo: "Jovem Aprendiz - Marketing",
@@ -156,7 +157,7 @@ if (vagasTrack && vagasDots && vagasPrev && vagasNext && vagas.length) {
     const cardVaga = (v) => `
         <article class="vaga-card">
             <h3 class="vaga-titulo">${esc(v.titulo)}</h3>
-            <div class="vaga-foto" role="img" aria-label="Foto de ${esc(v.local)}" style="--foto: url('${esc(v.foto)}')">
+            <div class="vaga-foto" role="img" aria-label="Foto de ${esc(v.local)}" style="--foto: url('${esc(new URL(v.foto, document.baseURI).href)}')">
                 <span class="vaga-estado">${esc(v.estado)}</span>
                 <div class="vaga-tags">
                     <span class="vaga-tag area">${esc(v.area)}</span>
@@ -170,7 +171,7 @@ if (vagasTrack && vagasDots && vagasPrev && vagasNext && vagas.length) {
                 <li><i class="fa-regular fa-calendar-check" aria-hidden="true"></i><span>${esc(v.horario)}</span></li>
                 <li class="salario"><i class="fa-solid fa-sack-dollar" aria-hidden="true"></i><span>${esc(v.salario)}</span></li>
             </ul>
-            <a href="./html/vagas.html" class="vaga-botao">Saiba Mais</a>
+            <a href="./html/vagas.html#vaga-${vagas.indexOf(v)}" class="vaga-botao">Saiba Mais</a>
         </article>`;
 
     vagasTrack.innerHTML = vagas.map(cardVaga).join("");

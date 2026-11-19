@@ -23,10 +23,11 @@
     const norm = (t) => String(t).normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
 
     // As fotos são relativas ao index.html; aqui estamos em /html/
-    const caminhoFoto = (f) => String(f || "").replace(/^\.\//, "../");
+    // (URL absoluta: caminhos dentro de var() do CSS seriam lidos a partir da pasta CSS/)
+    const caminhoFoto = (f) => new URL(String(f || "").replace(/^\.\//, "../"), document.baseURI).href;
 
     const card = (v) => `
-        <article class="vaga-card">
+        <article class="vaga-card" id="vaga-${vagas.indexOf(v)}">
             <h3 class="vaga-titulo">${esc(v.titulo)}</h3>
             <div class="vaga-foto" role="img" aria-label="Foto de ${esc(v.local)}" style="--foto: url('${esc(caminhoFoto(v.foto))}')">
                 <span class="vaga-estado">${esc(v.estado)}</span>
@@ -85,11 +86,21 @@
         contagem.textContent = lista.length === 1 ? "1 vaga encontrada" : `${lista.length} vagas encontradas`;
     }
 
+    // Vindo do carrossel da página inicial (vagas.html#vaga-3): rola até o card e destaca
+    function irParaVagaDoLink() {
+        const alvo = /^#vaga-\d+$/.test(location.hash) ? document.getElementById(location.hash.slice(1)) : null;
+        if (!alvo) return;
+        alvo.classList.add("vaga-alvo");
+        alvo.scrollIntoView({ behavior: "smooth", block: "center" });
+        setTimeout(() => alvo.classList.remove("vaga-alvo"), 3500);
+    }
+
     montarFiltros();
     [busca, selEstado, selArea, selModalidade, selOrdem].forEach((el) => {
         el.addEventListener(el === busca ? "input" : "change", render);
     });
     render();
+    irParaVagaDoLink();
 
     if (!admin) return;
 
@@ -198,28 +209,5 @@
             vagas.splice(i, 1);
             persistir();
         }
-    });
-
-    document.getElementById("adminRestaurar").addEventListener("click", () => {
-        if (!confirm("Isso apaga todas as alterações feitas aqui e volta para as vagas originais do site. Continuar?")) return;
-        restaurarVagas();
-        vagas.splice(0, vagas.length, ...carregarVagas());
-        montarFiltros();
-        render();
-    });
-
-    // Gera o array pronto para colar em JS/main.js (assim as mudanças valem para todos os visitantes)
-    document.getElementById("adminExportar").addEventListener("click", async (e) => {
-        const codigo = "const VAGAS_PADRAO = " + JSON.stringify(vagas, null, 4) + ";";
-        const botao = e.currentTarget;
-        try {
-            await navigator.clipboard.writeText(codigo);
-            botao.innerHTML = '<i class="fa-solid fa-check" aria-hidden="true"></i> Copiado!';
-        } catch (err) {
-            window.prompt("Copie o código abaixo (Ctrl+C):", codigo);
-        }
-        setTimeout(() => {
-            botao.innerHTML = '<i class="fa-regular fa-copy" aria-hidden="true"></i> Copiar código das vagas';
-        }, 2000);
     });
 })();

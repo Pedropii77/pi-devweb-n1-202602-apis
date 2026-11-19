@@ -332,6 +332,7 @@
     height: 180px;
     border-radius: 14px;
     background-color: #9000b5;
+    background-image: var(--foto), linear-gradient(135deg, #9000b5 0%, #400363 100%);
     background-size: cover;
     background-position: center;
 }

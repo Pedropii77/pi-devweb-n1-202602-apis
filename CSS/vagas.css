@@ -591,3 +591,30 @@
         grid-template-columns: 1fr;
     }
 }
+
+
+/* Card aberto a partir do carrossel da página inicial */
+.vaga-card.vaga-alvo {
+    outline: 4px solid #FFA301;
+    outline-offset: 4px;
+    animation: vagaPulso 1.2s ease-in-out 2;
+}
+
+@keyframes vagaPulso {
+    50% { outline-color: #8b05bf; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .vaga-card.vaga-alvo { animation: none; }
+}
+
+.admin-upload {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    line-height: 1.4;
+}
+
+.admin-upload input[type="file"] {
+    font-size: 12px;
+}
