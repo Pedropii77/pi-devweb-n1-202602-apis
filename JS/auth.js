@@ -5,7 +5,7 @@
 // código-fonte consegue ver o usuário e a senha. Para um login real é preciso
 // um servidor (ex.: Firebase, Supabase).
 const ADMIN_USUARIO = "admin";
-const ADMIN_SENHA = "lupita2026"; // troque antes de publicar
+const ADMIN_SENHA = "lupita2026"; // credencial apenas para demonstração local
 const ADMIN_CHAVE = "lupita_admin";
 
 const Auth = {

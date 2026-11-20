@@ -281,24 +281,9 @@
     <!-- Botão de Acessibilidade -->
     <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sienna-accessibility/dist/sienna-accessibility.umd.js" defer></script>
+    
     <script src="./JS/auth.js"></script>
-
     <script src="./JS/main.js"></script>
-
-    <!-- Formulário de contato do index: abre o e-mail do visitante já preenchido -->
-    <script>
-        document.getElementById('contatoForm').addEventListener('submit', function (e) {
-            e.preventDefault();
-            var nome = document.getElementById('contato-nome').value;
-            var email = document.getElementById('contato-email').value;
-            var msg = document.getElementById('contato-mensagem').value;
-            var assunto = 'Contato pelo site da Lupita - ' + nome;
-            var corpo = msg + '\n\nNome: ' + nome + '\nE-mail: ' + email;
-            window.location.href = 'mailto:lupita@percorre.org.br?subject=' +
-                encodeURIComponent(assunto) + '&body=' + encodeURIComponent(corpo);
-        });
-    </script>
-
 </body>
 
 </html>

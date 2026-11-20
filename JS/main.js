@@ -230,3 +230,18 @@ if (vagasTrack && vagasDots && vagasPrev && vagasNext && vagas.length) {
 
     montarDots();
 }
+
+const contatoForm = document.getElementById("contatoForm");
+
+if (contatoForm) {
+    contatoForm.addEventListener("submit", (e) => {
+        e.preventDefault();
+        const nome = document.getElementById("contato-nome").value;
+        const email = document.getElementById("contato-email").value;
+        const mensagem = document.getElementById("contato-mensagem").value;
+        const assunto = "Contato pelo site da Lupita - " + nome;
+        const corpo = mensagem + "\n\nNome: " + nome + "\nE-mail: " + email;
+        window.location.href = "mailto:lupita@percorre.org.br?subject=" +
+            encodeURIComponent(assunto) + "&body=" + encodeURIComponent(corpo);
+    });
+}

@@ -418,7 +418,8 @@
 
 @media (max-width: 700px) {
     .main-oferecemos-quem {
-        padding: 48px 20px 0;
+        gap: 16px;
+        padding: 24px 20px 0;
     }
 
     .oferecemos-selo {
@@ -439,7 +440,11 @@
     }
 
     .main-oferecemos-quem-right {
-        height: 460px;
+        height: auto;
+    }
+
+    .main-oferecemos-quem-right img {
+        height: auto;
     }
 }
 
@@ -944,7 +949,7 @@
     }
 
     .main-oferecemos-quem-right {
-        height: 400px;
+        height: auto;
     }
 
     .main-dizem-quem {
