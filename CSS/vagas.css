@@ -286,17 +286,21 @@
     color: #400363;
 }
 
+/* Botão "Para saber mais, entre em contato" (texto maior que o antigo "Saiba mais") */
 .vaga-botao {
     margin-top: auto;
-    height: 38px;
+    min-height: 40px;
+    padding: 8px 14px;
     display: flex;
     justify-content: center;
     align-items: center;
+    text-align: center;
     border-radius: 20px;
     background-color: #8a00a8;
     color: #fff;
-    font-size: 17px;
+    font-size: 14px;
     font-weight: 700;
+    line-height: 1.25;
     text-decoration: none;
 }
 

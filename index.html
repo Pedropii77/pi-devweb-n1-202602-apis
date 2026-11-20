@@ -151,8 +151,60 @@
             </div>
         </section>
 
-        <section class="inicio-contato">
-            <h1>Entre em contato conosco</h1>
+        <section class="inicio-contato" aria-labelledby="titulo-contato">
+            <div class="contato-conteudo">
+                <div class="contato-info">
+                    <p class="contato-selo">Fale com a gente</p>
+                    <h2 class="contato-titulo" id="titulo-contato">
+                        Entre em <span class="contato-destaque">contato</span> conosco
+                    </h2>
+                    <p class="contato-texto">
+                        Tem alguma dúvida sobre as vagas, os cursos ou como participar da Lupita? Mande uma mensagem e
+                        nossa equipe responde o quanto antes.
+                    </p>
+
+                    <ul class="contato-lista">
+                        <li>
+                            <a href="mailto:lupita@percorre.org.br">
+                                <span class="contato-icone" aria-hidden="true"><i
+                                        class="fa-solid fa-envelope"></i></span>
+                                lupita@percorre.org.br
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.instagram.com/lupita.percorre/" target="_blank" rel="noopener">
+                                <span class="contato-icone" aria-hidden="true"><i
+                                        class="fa-brands fa-instagram"></i></span>
+                                @lupita.percorre
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.linkedin.com/in/lupita-n%C3%BAcleo-de-oportunidades-5b4b7938a/"
+                                target="_blank" rel="noopener">
+                                <span class="contato-icone" aria-hidden="true"><i
+                                        class="fa-brands fa-linkedin-in"></i></span>
+                                Lupita - Núcleo de Oportunidades
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+
+                <form class="contato-form" id="contatoForm">
+                    <h3 class="contato-form-titulo">Envie sua mensagem</h3>
+
+                    <label for="contato-nome">Nome</label>
+                    <input type="text" id="contato-nome" name="nome" placeholder="Seu nome completo" required>
+
+                    <label for="contato-email">E-mail</label>
+                    <input type="email" id="contato-email" name="email" placeholder="seuemail@exemplo.com" required>
+
+                    <label for="contato-mensagem">Mensagem</label>
+                    <textarea id="contato-mensagem" name="mensagem" rows="4" placeholder="Como podemos te ajudar?"
+                        required></textarea>
+
+                    <button type="submit" class="contato-botao">Enviar mensagem</button>
+                </form>
+            </div>
         </section>
 
         <section class="inicio-perguntas" aria-labelledby="titulo-perguntas">
@@ -232,6 +284,20 @@
     <script src="./JS/auth.js"></script>
 
     <script src="./JS/main.js"></script>
+
+    <!-- Formulário de contato do index: abre o e-mail do visitante já preenchido -->
+    <script>
+        document.getElementById('contatoForm').addEventListener('submit', function (e) {
+            e.preventDefault();
+            var nome = document.getElementById('contato-nome').value;
+            var email = document.getElementById('contato-email').value;
+            var msg = document.getElementById('contato-mensagem').value;
+            var assunto = 'Contato pelo site da Lupita - ' + nome;
+            var corpo = msg + '\n\nNome: ' + nome + '\nE-mail: ' + email;
+            window.location.href = 'mailto:lupita@percorre.org.br?subject=' +
+                encodeURIComponent(assunto) + '&body=' + encodeURIComponent(corpo);
+        });
+    </script>
 
 </body>
 

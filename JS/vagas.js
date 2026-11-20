@@ -211,3 +211,35 @@
         }
     });
 })();
+
+/* Botão dos cards de vagas: "Para saber mais, entre em contato" -> contato.html */
+   (function () {
+    var grade = document.getElementById('vagasGrade');
+    if (!grade) return;
+
+    var TEXTO = 'Para saber mais, entre em contato';
+    var LINK = './contato.html';
+
+    function ajustarBotoes() {
+        grade.querySelectorAll('.vaga-botao').forEach(function (el) {
+            if (el.dataset.contato === '1') return;
+
+            if (el.tagName === 'A') {
+                el.setAttribute('href', LINK);
+                el.removeAttribute('target');
+                el.textContent = TEXTO;
+                el.dataset.contato = '1';
+            } else {
+                var a = document.createElement('a');
+                a.className = el.className;
+                a.setAttribute('href', LINK);
+                a.textContent = TEXTO;
+                a.dataset.contato = '1';
+                el.replaceWith(a);
+            }
+        });
+    }
+
+    new MutationObserver(ajustarBotoes).observe(grade, { childList: true, subtree: true });
+    ajustarBotoes();
+})();
