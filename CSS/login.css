@@ -150,15 +150,10 @@ body > .footer {
     text-decoration: underline;
 }
 
-.login-aviso,
 .login-erro {
     margin: 10px 4px 0;
     font-size: 12px;
     line-height: 1.4;
-}
-
-.login-aviso {
-    color: #e9d3f3;
 }
 
 .login-erro {
