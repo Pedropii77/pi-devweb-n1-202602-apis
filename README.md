@@ -4,7 +4,7 @@ Trabalho de Conclusão de Curso (TCC) do curso de Desenvolvimento Web do Institu
  
 A **Apis** é uma consultoria online que cria sites para empresas. Este repositório reúne o nosso projeto de exemplo: o site da **Lupita**, a personagem que apresenta o núcleo de empregabilidade do Instituto Percorre, que acompanha o ex-aluno por até 5 anos e o conecta com vagas reais no mercado.
  
-[Acesse o site](https://pedropii77.github.io/pi-devweb-n1-202602-apis/)
+[Acesse o site](https://lupita-percorre.vercel.app/)
  
 ---
  
