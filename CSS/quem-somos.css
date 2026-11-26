@@ -289,6 +289,10 @@
     }
 }
 
+/* ===== Seção "O que oferecemos" ===== */
+/* A altura da seção é fixa (min-height), independente da imagem.
+   A Lupita preenche quase toda a div da direita (fora do fluxo),
+   sem scale, então não muda de tamanho ao rolar a página. */
 .main-oferecemos-quem {
     position: relative;
     width: 100%;
@@ -305,7 +309,7 @@
 .main-oferecemos-quem-left {
     position: relative;
     z-index: 2;
-    width: min(100%, 520px);
+    width: min(100%, 600px);
     display: flex;
     flex-direction: column;
     align-items: flex-start;
@@ -321,34 +325,34 @@
     border: 2px solid white;
     border-radius: 70px;
     color: white;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
 }
 
 .subtitulo-oferecemos {
     color: white;
-    font-size: 42px;
+    font-size: 50px;
     font-weight: 700;
     line-height: 1.25;
 }
 
 .texto-oferecemos {
     color: #f0e4f4;
-    font-size: 20px;
+    font-size: 23px;
     font-weight: 500;
     line-height: 1.6;
 }
 
 .btn-oferecemos {
-    min-height: 50px;
+    min-height: 56px;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    padding: 0 36px;
+    padding: 0 40px;
     border-radius: 35px;
     background-color: #ffa301;
     color: #3d0450;
-    font-size: 20px;
+    font-size: 22px;
     font-weight: 700;
     text-decoration: none;
     transition: background-color 0.3s, transform 0.3s;
@@ -359,38 +363,56 @@
     transform: translateY(-3px);
 }
 
+/* Div da Lupita: ocupa a altura toda da seção, no lado direito */
 .main-oferecemos-quem-right {
     position: absolute;
-    top: 10px;
+    top: 0;
     right: 0;
     bottom: 0;
     z-index: 1;
     width: 60%;
     display: flex;
-    align-items: flex-start;
-    justify-content: center;
+    align-items: flex-end;
+    justify-content: flex-end;
+    pointer-events: none;
 }
 
+/* A imagem fica numa caixa de 128% da largura da div e 104% da altura
+   da seção, com object-fit: contain. Assim o tamanho é sempre o MENOR
+   entre "largura" e "altura": em telas largas/zoom out ela não estoura
+   a seção, e em telas estreitas não fica pequena demais. */
 .main-oferecemos-quem-right img {
-    position: relative;
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    display: block;
+    width: 128%;
+    max-width: none;
+    height: 104%;
     object-fit: contain;
-    object-position: center top;
-    transform: scale(1.3);
-    transform-origin: top center;
+    object-position: center bottom;
 }
 
 @media (max-width: 1100px) {
+    .main-oferecemos-quem-left {
+        width: min(100%, 500px);
+    }
+
     .main-oferecemos-quem-right {
-        width: 52%;
+        width: 56%;
     }
 
     .subtitulo-oferecemos {
-        font-size: 36px;
+        font-size: 42px;
+    }
+
+    .texto-oferecemos {
+        font-size: 20px;
     }
 }
 
+/* Tablet/celular: texto em cima, Lupita embaixo */
 @media (max-width: 900px) {
     .main-oferecemos-quem {
         flex-direction: column;
@@ -400,38 +422,44 @@
         padding: 56px 24px 0;
     }
 
+    .main-oferecemos-quem-left {
+        width: 100%;
+    }
+
     .main-oferecemos-quem-right {
         position: relative;
         top: auto;
         right: auto;
         bottom: auto;
         width: 100%;
-        height: 560px;
-        align-items: flex-end;
+        justify-content: center;
     }
 
     .main-oferecemos-quem-right img {
-        object-position: center bottom;
+        position: static;
         transform: none;
+        width: min(100%, 620px);
+        height: auto;
+        object-fit: initial;
     }
 }
 
 @media (max-width: 700px) {
     .main-oferecemos-quem {
-        gap: 16px;
-        padding: 24px 20px 0;
+        gap: 24px;
+        padding: 40px 20px 0;
     }
 
     .oferecemos-selo {
-        font-size: 17px;
+        font-size: 18px;
     }
 
     .subtitulo-oferecemos {
-        font-size: clamp(30px, 8vw, 42px);
+        font-size: clamp(30px, 8.5vw, 42px);
     }
 
     .texto-oferecemos {
-        font-size: 17px;
+        font-size: 18px;
     }
 
     .btn-oferecemos {
@@ -439,14 +467,17 @@
         font-size: 18px;
     }
 
-    .main-oferecemos-quem-right {
-        height: auto;
-    }
-
     .main-oferecemos-quem-right img {
-        height: auto;
+        width: min(100%, 520px);
     }
 }
+
+@media (max-width: 480px) {
+    .main-oferecemos-quem {
+        padding: 32px 16px 0;
+    }
+}
+/* ===== Fim da seção "O que oferecemos" ===== */
 
 .main-missao-quem {
     width: 100%;
@@ -942,14 +973,6 @@
 
     .proposito-titulo {
         overflow-wrap: break-word;
-    }
-
-    .main-oferecemos-quem {
-        padding-inline: 16px;
-    }
-
-    .main-oferecemos-quem-right {
-        height: auto;
     }
 
     .main-dizem-quem {
